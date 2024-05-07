@@ -1,0 +1,175 @@
+*, p{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  color:#fff;
+  scrollbar-color: #8e8e8e #fff;
+  scrollbar-width: thin;
+}
+
+.main-page{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+  background-size: 300% 300%;
+  animation: color 7s ease-in-out infinite;
+}
+
+@keyframes color {
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+
+.main-page h1{
+  font-size: 5rem;
+}
+
+.main-page a{
+  border-radius: 30px;
+  border: 2px solid #f2f2f2;
+  padding: 15px 60px 15px 60px;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #1b1b1b;
+  overflow: hidden;
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+nav.scrolled{
+  background-color:rgba(16, 16, 16, 0.5);
+}
+
+nav img{
+  width: 50px;
+  height: 100%;
+}
+
+nav a {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  color: #f2f2f2;
+  padding: 14px 16px;
+  gap: 5px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+nav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+nav .rectangle {
+  width: 2.5px;
+  height: 30px;
+  background-color: #ffc901;
+  margin-right: 3px;
+}
+
+.project-page{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-wrap{
+  margin: 100px 0 100px 0;
+  display:inherit;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 90vw;
+  height: 100%;
+  row-gap: 70px;
+  /* background-color: red; */
+}
+
+.item{
+  padding: 100px 100px 75px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: left;
+  background-color: #04AA6D;
+  border-radius: 50px;
+}
+
+.item.wide{
+  width: 800px;
+  height: 500px;
+}
+
+.item.narrow{
+  width: 400px;
+  height: 500px;
+}
+
+.item h1{
+  font-size: 3.5rem;
+}
+
+
+.contact-page{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #d2001a;
+  max-width: 100vw;
+  height: 40vh;
+  min-height: 400px;
+}
+
+.flex-item{
+  flex-grow: 1;
+}
+
+.flex-item:nth-child(3){
+  flex-grow: 5;
+}
+
+
+.portrait{
+  width: 25%;
+  height: 100%;
+  background-image: url(/asset/portraitBox.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.about{
+  background-color: #04AA6D;
+}
+
+.contact{
+  background-color: #7462ff;
+}
+
+
