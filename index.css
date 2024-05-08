@@ -1,34 +1,41 @@
-html,p{
-  margin:0;
-  padding:0;
+:root{
+  --white:#FFFFFF;
+  --mint-cream:#EFFFFA;
+  --alice-blue: #e5ecf4;
+  --periwrinkle: #C3BEF7;
+  --slate-blue: #8A4FFF;
+}
+html,p {
+  margin: 0;
+  padding: 0;
   line-height: 1.2;
 }
 
-a{
+a {
   text-decoration: none;
-  color:inherit;
+  color: inherit;
 }
 
-.overlay{
-  background-color: #8A4FFF;
-  position:absolute;
-  top:0;
+.overlay {
+  background-color: var(--slate-blue);
+  position: absolute;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   opacity: 60%;
 }
 
-.resume{
+.resume {
   font-size: 20px;
-  border: 3px solid #e5ecf4;
+  border: 3px solid var(--alice-blue);
   border-radius: 20px;
   padding: 5px 20px 5px 20px;
 }
 
-.resume:hover{
-  color:#8A4FFF;
-  background-color:#e5ecf4;
+.resume:hover {
+  color: var(--slate-blue);
+  background-color: var(--alice-blue);
 }
 
 .poppins-light {
@@ -37,23 +44,59 @@ a{
   font-style: normal;
 }
 
-.landing-page{
+.landing-page {
   background-image: url(asset/portraitLG.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  top:0;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   position: absolute;
+  color: var(--alice-blue);
 }
 
-.text{
-  color: #e5ecf4;
+.text {
   position: absolute;
-  -ms-transform: translateY(-50%);
+  /* -ms-transform: translateY(-50%); */
   transform: translateY(-50%);
-  top:35%;
+  top: 35%;
   left: 5%;
+}
+
+.arrow {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+}
+
+.ping {
+  animation: ping 0.8s ease-in-out infinite both;
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.8;
+  }
+
+  80% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.project-page{
+  background-color: var(--periwrinkle);
+}
+
+nav{
+  z-index: 10;
+  display: flex;
 }
