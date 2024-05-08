@@ -1,15 +1,21 @@
 :root{
   /* --white:#FFFFFF; */
   --mint-cream:#EFFFFA;
-  /* --alice-blue: #e5ecf4; */
+  --alice-blue: #e5ecf4;
   --periwrinkle: #C3BEF7;
   --slate-blue: #8A4FFF;
 }
 
-body,html,p {
+body,html {
   scrollbar-color: #8e8e8e #fff;
   scrollbar-width: thin;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+p{
   margin: 0;
   padding: 0;
   line-height: 1.2;
@@ -18,6 +24,11 @@ body,html,p {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+ul{
+  list-style: none;
+  padding-left:0;
 }
 
 .overlay {
@@ -76,7 +87,7 @@ a {
   position: absolute;
   bottom: 20px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
 }
 
 .fade-in-top {
@@ -95,18 +106,40 @@ a {
 }
 
 nav{
-  color: var(--alice-blue);
+  color: var(--mint-cream);
   position: fixed;
   top:0;
-  width:100%;
+  left:50%;
+  transform: translateX(-50%);
+  background-color: var(--slate-blue);
+  border: 3px solid var(--mint-cream);
+  border-top: none;
+  height: 50px;
+	width: 35%;
+  border-radius: 0 0 10px 10px;
+  /* trapezoid - looks nice but problems */
+  /* clip-path: polygon(0 0, 100% 0, calc(100% - 50px) 100%, 50px 100%);  */
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
 }
 
 nav ul{
+  width:100%;
+  position: absolute;
+  top: 0px;
+  left:50%;
+  transform: translateX(-50%);
   padding: 0;
+  margin-top:7px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  list-style: none;
+  gap: 50px;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+nav li:hover{
+  font-weight: 700;
 }
 
 .project-page{
@@ -158,16 +191,30 @@ nav ul{
 
 .contact-page{
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.portrait img{
+
+  flex:1;
+  /* width: 302px; */
+  /* height:302px; */
 }
 
 .about{
-  padding: 0 0 50px 100px;
+  width:100%;
   background-color: var(--slate-blue);
   color:var(--mint-cream);
+  padding:10px;
+  flex:1;
 }
 
 .contact{
-  padding: 0 100px 50px 0;
+  /* height: 100%; */
+  padding:10px;
   background-color: var(--mint-cream);
   color:var(--slate-blue);
+  flex:2;
 }
