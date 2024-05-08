@@ -5,7 +5,9 @@
   --periwrinkle: #C3BEF7;
   --slate-blue: #8A4FFF;
 }
-html,p {
+
+body,p {
+  height: 100%;
   margin: 0;
   padding: 0;
   line-height: 1.2;
@@ -19,10 +21,8 @@ a {
 .overlay {
   background-color: var(--slate-blue);
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
+  height: 100%;
   opacity: 60%;
 }
 
@@ -44,25 +44,31 @@ a {
   font-style: normal;
 }
 
-.landing-page {
+.bg-image{
   background-image: url(asset/portraitLG.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  position: absolute;
+  width: 100%;
+  height:100vh;
+  position: relative;
+}
+
+.landing-page {
+  position: relative;
+  width: 100%;
+  /* height:100%; */
+  /* max-width: 100vw; */
   color: var(--alice-blue);
 }
 
 .text {
   position: absolute;
-  /* -ms-transform: translateY(-50%); */
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  top: 35%;
+  top: 45%;
   left: 5%;
+  /* max-width: fit-content;s */
 }
 
 .arrow {
@@ -97,6 +103,14 @@ a {
 }
 
 nav{
-  z-index: 10;
+  position: fixed;
+  top:0;
+  width:100%;
+}
+
+nav ul{
   display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
 }
