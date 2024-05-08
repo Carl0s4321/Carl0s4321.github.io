@@ -122,6 +122,7 @@ nav{
   border-radius: 10px 0 0px 10px;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
   padding:0 10px 0 10px;
+  z-index:999;
 }
 
 nav:hover{
@@ -154,47 +155,125 @@ nav a:hover{
   background-repeat: repeat;
 }
 
-.project-page h2{
-  font-size:2.5rem;
-  float: right;
-  margin:0 100px 0 0;
-}
-
 .project-wrap{
   padding: 75px 0 75px 0;
   margin: 0 auto 0 auto;
   display:flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
-  width: 80vw;
+  width: 85vw;
   height: 100%;
   row-gap: 70px;
-  /* background-color: red; */
 }
 
 .item{
-  padding: 100px 100px 75px 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: left;
   background-color: var(--slate-blue);
-  border-radius: 50px;
+  border-radius: 20px;
   color:var(--mint-cream);
+  overflow: hidden;
+  position: relative;
 }
 
-.item.wide{
-  width: 600px;
-  height: 300px;
+
+.item-content{
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
 }
 
-.item.narrow{
-  width: 220px;
-  height: 300px;
+.item.unavailable{
+  pointer-events: none;
 }
 
-.item h1{
+.item.small{
+  width: 300px;
+  height: 400px;
+}
+
+.item.medium{
+  width: 475px;
+  height: 400px;
+}
+
+.item.large{
+  width: 700px;
+  height: 400px;
+}
+
+.item-image{
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.item-image:hover{
+  animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes scale-up-center {
+  0% {
+      transform: scale(1);
+  }
+  100% {
+      transform: scale(1.2);
+  }
+}
+
+.item-image:not(:hover){
+  animation: scale-down-center 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes scale-down-center {
+  0% {
+      transform: scale(1.2);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+
+.item-caption{
+  position: absolute;
+  bottom: 50px;
+  left:50px;
+  text-align: left;
+}
+
+.item-title{
   font-size: 3rem;
+  font-weight:600;
+}
+
+.item-sub{
+  font-size: 1.2rem;
+  height:25px;
+  overflow: hidden;
+}
+
+
+
+.green-label{
+  font-size: 15px;
+  vertical-align: top;
+  background-color:green;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .item.wide{
+    width: 352px;
+    height: 220px;
+  }
+  
+  .item.narrow{
+    width: 352px;
+    height: 220px;
+  }
 }
 
 .contact-page{
@@ -226,3 +305,4 @@ nav a:hover{
   color:var(--slate-blue);
   flex:2;
 }
+
