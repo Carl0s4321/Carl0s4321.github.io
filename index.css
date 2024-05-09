@@ -115,6 +115,7 @@ nav{
   top:25%;
   right:0;
 	width: 50px;
+  transition: width 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items:center;
@@ -126,7 +127,7 @@ nav{
 }
 
 nav:hover{
-  width: auto;
+  width: 200px;
 }
 
 nav a {
@@ -172,6 +173,8 @@ nav a:hover{
   color:var(--mint-cream);
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-shrink: 1;
 }
 
 
@@ -239,8 +242,10 @@ nav a:hover{
 .item-caption{
   position: absolute;
   bottom: 50px;
-  left:50px;
+  left:30px;
   text-align: left;
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  /* width: 100%; */
 }
 
 .item-title{
@@ -254,14 +259,37 @@ nav a:hover{
   overflow: hidden;
 }
 
+.item-desc{
+  transition: transform 0.3s ease;
+  transform: translateY(0);
+}
 
+.read-more{
+  transition: transform 0.3s ease;
+  transform: translateY(0);
+}
 
-.green-label{
+.item-content:hover .item-desc {
+  transform: translateY(-100%);
+}
+
+.item-content:hover .read-more {
+  transform: translateY(-30px);
+}
+
+.label{
   font-size: 15px;
   vertical-align: top;
-  background-color:green;
   border-radius: 10px;
   padding: 5px;
+}
+
+.label.green{
+  background-color:green;
+}
+
+.label.orange{
+  background-color:orange;
 }
 
 @media screen and (max-width: 600px) {
