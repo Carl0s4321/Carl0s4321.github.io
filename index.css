@@ -294,14 +294,28 @@ nav a:hover{
 }
 
 @media screen and (max-width: 600px) {
-  .item.wide{
+  .item.large, .item.medium, .item.small{
     width: 352px;
     height: 220px;
   }
   
-  .item.narrow{
-    width: 352px;
-    height: 220px;
+  .item-title{
+    font-size: 2rem;
+  }
+  
+  .item-sub{
+    font-size: 1rem;
+  }
+
+  .label{
+    font-size: 10px;
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  .item-caption{
+    bottom: 20px;
+    left:15px;
   }
 }
 
