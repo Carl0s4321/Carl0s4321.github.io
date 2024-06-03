@@ -170,6 +170,20 @@ nav a:hover{
   column-gap:50px;
 }
 
+.project-image{
+  width:100vw;
+  height: 40vh;
+  background-image: url("asset/studdyBuddyPic.png");
+    background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+}
+
+.project-image img{
+  overflow: hidden;
+}
+
 .item{
   background-color: var(--slate-blue);
   border-radius: 20px;

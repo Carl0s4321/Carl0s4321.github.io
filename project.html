@@ -15,24 +15,38 @@
     <title>Carlos Sujanto</title>
   </head>
   <body class="poppins-light">
-    <div id="project-container">
-      <h1 id="project-title"></h1>
-      <p id="project-description"></p>
-      <img id="project-image" src="" alt="Project Image" />
+    <!-- <div id="homeID" class="landing-page">
+      <div id="changeBG" class="bg-image">
+        <div class="overlay"></div>
+        <div class="text">
+          <p id="project-subtitle" style="font-size: 25px"></p>
+          <p id="project-title" style="font-size: 75px"></p>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="project-main">
+      <div class="project-image"></div>
     </div>
+
     <script>
       const projects = {
         0: {
           title: "StudyBuddy",
+          class: "SENG513",
+          location: "Calgary, AB",
           description: "Description of Project 1.",
-          image: "path/to/project1-image.jpg",
+          imageTitle: "asset/studdyBuddyPic.png",
+          image: "asset/studdyBuddyPic.png",
         },
         1: {
           title: "Project 2 Title",
           description: "Description of Project 2.",
+          imageTitle: "asset/studdyBuddyPic.png",
           image: "path/to/project2-image.jpg",
         },
       };
+
       document.addEventListener("DOMContentLoaded", function () {
         function getProjectID(projectID) {
           const urlParams = new URLSearchParams(window.location.search);
@@ -43,10 +57,14 @@
           const project = projects[projectID];
           if (project) {
             document.title = `Carlos Sujanto | ${project.title}`;
-            document.getElementById("project-title").innerText = project.title;
-            document.getElementById("project-description").innerText =
-              project.description;
-            document.getElementById("project-image").src = project.image;
+            document.getElementById("changeBG").style.backgroundImage =
+              "url(" + `${project.image}` + ")";
+            document.getElementById("project-subtitle").innerHTML =
+              "<strong>" + project.class + "</strong> | " + project.location;
+            document.getElementById("project-title").innerHTML =
+              "<strong>" + project.title + "</strong>";
+            // document.getElementById("project-description").innerText = project.description;
+            document.getElementById("project-image").src = project.imageTitle;
           }
         }
 
