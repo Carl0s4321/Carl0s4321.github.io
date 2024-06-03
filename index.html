@@ -1,186 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="icon" href="asset/logo.png"> -->
-    <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <script src="https://kit.fontawesome.com/ac3bab0c5b.js" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/ac3bab0c5b.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="index.js"></script> -->
     <title>Carlos Sujanto</title>
-</head>
+  </head>
 
-<body class="poppins-light">
+  <body class="poppins-light">
     <nav>
-        <a style="white-space: nowrap; font-size: 1.5rem;" href="#homeID">
-            CS
-        </a>
-        <a href="#projectID">
-            <i class="fa-solid fa-briefcase fa-2x"></i>
-            <span class="nav-item">Projects</span>
-        </a>
-        <a href="#aboutID">
-            <i class="fa-solid fa-user fa-2x"></i>
-            <span class="nav-item">About</span>
-        </a>
+      <a style="white-space: nowrap; font-size: 1.5rem" href="#homeID"> CS </a>
+      <a href="#projectID">
+        <i class="fa-solid fa-briefcase fa-2x"></i>
+        <span class="nav-item">Projects</span>
+      </a>
+      <a href="#aboutID">
+        <i class="fa-solid fa-user fa-2x"></i>
+        <span class="nav-item">About</span>
+      </a>
     </nav>
 
     <div id="homeID" class="landing-page">
-        <div class="bg-image">
-            <div class="overlay"></div>
-            <div class="text">
-                <p style="font-size: 55px;">Hello,</p>
-                <p style="font-size: 75px;">I'm <strong>Carlos Sujanto</strong></p>
-                <p style="font-size: 20px; margin-bottom: 20px;">Currently a student at <strong><a
-                            href="https://www.ucalgary.ca">University of Calgary</a></strong></p>
-                <a href="asset/SujantoCarlosResumeV52024.pdf" class="resume"><strong>Resume</strong></a>
-            </div>
-            <i class="fa-solid fa-angle-down fa-3x arrow fade-in-top"></i>
-
+      <div class="bg-image">
+        <div class="overlay"></div>
+        <div class="text">
+          <p style="font-size: 55px">Hello,</p>
+          <p style="font-size: 75px">I'm <strong>Carlos Sujanto</strong></p>
+          <p style="font-size: 20px; margin-bottom: 20px">
+            Currently a student at
+            <strong
+              ><a href="https://www.ucalgary.ca"
+                >University of Calgary</a
+              ></strong
+            >
+          </p>
+          <a href="asset/SujantoCarlosResumeV52024.pdf" class="resume"
+            ><strong>Resume</strong></a
+          >
         </div>
+        <i class="fa-solid fa-angle-down fa-3x arrow fade-in-top"></i>
+      </div>
     </div>
 
     <div id="projectID" class="project-page">
-        <div class="project-wrap" id="items-container">
-
-            <div class="item large">
-                <a href="StudyBuddy.html">
-                    <div class="item-content">
-                        <div class="item-image" data-src="asset/studybuddy.gif"></div>
-                        <div class="item-caption">
-                            <div class="item-overlay">
-                                <div class="item-title">
-                                    StudyBuddy
-                                    <sup class="label orange">WIP</sup>
-                                    <!-- <sup class="label green">NEW</sup> -->
-                                </div>
-                                <div class="item-sub">
-                                    <div class="item-desc">Studying but <i>better</i></div>
-                                    <div class="read-more">Read more</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+      <div class="project-wrap" id="items-container">
+        <div class="item large">
+          <a onclick="handleClick(0)">
+            <div class="item-content">
+              <div class="item-image" data-src="asset/studybuddy.gif"></div>
+              <div class="item-caption">
+                <div class="item-overlay">
+                  <div class="item-title">
+                    StudyBuddy
+                    <sup class="label orange">WIP</sup>
+                    <!-- <sup class="label green">NEW</sup> -->
+                  </div>
+                  <div class="item-sub">
+                    <div class="item-desc">Studying but <i>better</i></div>
+                    <div class="read-more">Read more</div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div class="item medium">
-                <a href="TwoKings.html">
-                    <div class="item-content">
-                        <div class="item-image" data-src="asset/twokings.gif"></div>
-                        <div class="item-caption">
-                            <div class="item-overlay">
-                                <div class="item-title">
-                                    Two Kings
-                                    <sup class="label orange">WIP</sup>
-                                </div>
-                                <div class="item-sub">
-                                    <div class="item-desc">Who is the real one?</div>
-                                    <div class="read-more">Read more</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="item medium">
-                <a href="SnakeSnack.html">
-                    <div class="item-content">
-                        <div class="item-image" data-src="asset/snakesnack.gif"></div>
-                        <div class="item-caption">
-                            <div class="item-overlay">
-                                <div class="item-title">
-                                    Snake Snack
-                                    <sup class="label orange">WIP</sup>
-                                </div>
-                                <div class="item-sub">
-                                    <div class="item-desc">Hungriest snake ever lived</div>
-                                    <div class="read-more">Read more</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="item small unavailable">
-                <a href="CookIT.html">
-                    <div class="item-content">
-                        <div class="item-image" data-src="asset/cookItPic.png"></div>
-                        <div class="item-caption">
-                            <div class="item-overlay">
-                                <div class="item-title">
-                                    CookIT
-                                    <sup class="label orange">WIP</sup>
-                                </div>
-                                <div class="item-sub">
-                                    <div class="item-desc">Recipes & groceries in one</div>
-                                    <div class="read-more">Read more</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="item small">
-                <a href="#">
-                    <div class="item-content">
-                        <div class="item-image" data-src="https://f8n-production.s3.amazonaws.com/creators/profile/c8gley51s-nyan-cat-large-gif-gif-mbf1sa.gif"></div>
-                        <div class="item-caption">
-                            <div class="item-overlay">
-                                <div class="item-title">
-                                    For Fun
-                                    <sup class="label orange">WIP</sup>
-                                </div>
-                                <div class="item-sub">
-                                    <div class="item-desc">cool stuff...</div>
-                                    <div class="read-more">I think</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
+          </a>
         </div>
+
+        <div class="item medium">
+          <a href="TwoKings.html">
+            <div class="item-content">
+              <div class="item-image" data-src="asset/twokings.gif"></div>
+              <div class="item-caption">
+                <div class="item-overlay">
+                  <div class="item-title">
+                    Two Kings
+                    <sup class="label orange">WIP</sup>
+                  </div>
+                  <div class="item-sub">
+                    <div class="item-desc">Who is the real one?</div>
+                    <div class="read-more">Read more</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="item medium">
+          <a href="SnakeSnack.html">
+            <div class="item-content">
+              <div class="item-image" data-src="asset/snakesnack.gif"></div>
+              <div class="item-caption">
+                <div class="item-overlay">
+                  <div class="item-title">
+                    Snake Snack
+                    <sup class="label orange">WIP</sup>
+                  </div>
+                  <div class="item-sub">
+                    <div class="item-desc">Hungriest snake ever lived</div>
+                    <div class="read-more">Read more</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="item small unavailable">
+          <a href="CookIT.html">
+            <div class="item-content">
+              <div class="item-image" data-src="asset/cookItPic.png"></div>
+              <div class="item-caption">
+                <div class="item-overlay">
+                  <div class="item-title">
+                    CookIT
+                    <sup class="label orange">WIP</sup>
+                  </div>
+                  <div class="item-sub">
+                    <div class="item-desc">Recipes & groceries in one</div>
+                    <div class="read-more">Read more</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="item small">
+          <a href="#">
+            <div class="item-content">
+              <div
+                class="item-image"
+                data-src="https://f8n-production.s3.amazonaws.com/creators/profile/c8gley51s-nyan-cat-large-gif-gif-mbf1sa.gif"
+              ></div>
+              <div class="item-caption">
+                <div class="item-overlay">
+                  <div class="item-title">
+                    For Fun
+                    <sup class="label orange">WIP</sup>
+                  </div>
+                  <div class="item-sub">
+                    <div class="item-desc">cool stuff...</div>
+                    <div class="read-more">I think</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
 
     <div id="aboutID" class="contact-page">
-        <div class="about">
-            <h1>about</h1>
-            <p>Hey, I'm Carlos! I'm a third year computer science student at University of Calgary.
-                I like to explore into many different topics in computer science, such as Networks, Operating Systems,
-                Web Development, Software Design, Cybersecurity, and many more!
-                <br>I'm currently interested for Internship Opportunities in Computer Networks but I'm always eager to
-                learn anything!
-            </p>
-        </div>
-        <div class="contact">
-            <h1>contact</h1>
-            <p>Let's be friends! Haha jk... unless?😳</p>
-            <ul>
-                <li>
-                    <i class="fa-solid fa-square-envelope fa-xl"></i>
-                    <a>carlos.sujanto@ucalgary.ca</a>
-                </li>
-                <li>
-                    <i class="fa-brands fa-linkedin fa-xl"></i>
-                    <a href="https://www.linkedin.com/in/carlos-sujanto/">linkedin.com/in/carlos-sujanto</a>
-                </li>
-                <li>
-                    <i class="fa-brands fa-square-github fa-xl"></i>
-                    <a href="https://www.linkedin.com/in/carlos-sujanto/">github.com/Carl0s4321</a>
-                </li>
-            </ul>
-        </div>
+      <div class="about">
+        <h1>about</h1>
+        <p>
+          Hey, I'm Carlos! I'm a third year computer science student at
+          University of Calgary. I like to explore into many different topics in
+          computer science, such as Networks, Operating Systems, Web
+          Development, Software Design, Cybersecurity, and many more! <br />I'm
+          currently interested for Internship Opportunities in Computer Networks
+          but I'm always eager to learn anything!
+        </p>
+      </div>
+      <div class="contact">
+        <h1>contact</h1>
+        <p>Let's be friends! Haha jk... unless?😳</p>
+        <ul>
+          <li>
+            <i class="fa-solid fa-square-envelope fa-xl"></i>
+            <a>carlos.sujanto@ucalgary.ca</a>
+          </li>
+          <li>
+            <i class="fa-brands fa-linkedin fa-xl"></i>
+            <a href="https://www.linkedin.com/in/carlos-sujanto/"
+              >linkedin.com/in/carlos-sujanto</a
+            >
+          </li>
+          <li>
+            <i class="fa-brands fa-square-github fa-xl"></i>
+            <a href="https://www.linkedin.com/in/carlos-sujanto/"
+              >github.com/Carl0s4321</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-</body>
+    <script>
+      // passing params to load projects dynamically
+      function handleClick(projectID) {
+        window.location.href = `project.html?project=${projectID}`;
+      }
 
+      // load the gifs
+      document.addEventListener("DOMContentLoaded", function () {
+        var divs = document.querySelectorAll(".item-image");
+        divs.forEach(function (div) {
+          var src = div.getAttribute("data-src");
+          div.style.backgroundImage = "url('" + src + "')";
+        });
+      });
+    </script>
+  </body>
 </html>

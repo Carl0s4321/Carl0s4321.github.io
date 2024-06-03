@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <script src="index.js"></script> -->
+    <title>Carlos Sujanto</title>
+  </head>
+  <body class="poppins-light">
+    <div id="project-container">
+      <h1 id="project-title"></h1>
+      <p id="project-description"></p>
+      <img id="project-image" src="" alt="Project Image" />
+    </div>
+    <script>
+      const projects = {
+        0: {
+          title: "StudyBuddy",
+          description: "Description of Project 1.",
+          image: "path/to/project1-image.jpg",
+        },
+        1: {
+          title: "Project 2 Title",
+          description: "Description of Project 2.",
+          image: "path/to/project2-image.jpg",
+        },
+      };
+      document.addEventListener("DOMContentLoaded", function () {
+        function getProjectID(projectID) {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(projectID);
+        }
+
+        function loadProject(projectID) {
+          const project = projects[projectID];
+          if (project) {
+            document.title = `Carlos Sujanto | ${project.title}`;
+            document.getElementById("project-title").innerText = project.title;
+            document.getElementById("project-description").innerText =
+              project.description;
+            document.getElementById("project-image").src = project.image;
+          }
+        }
+
+        const projectID = getProjectID("project");
+        if (projectID) {
+          loadProject(projectID);
+        }
+      });
+    </script>
+  </body>
+</html>
