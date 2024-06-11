@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
   </head>
-  <body class="poppins-light">
+  <body class="poppins-light" style="background-color: #8a4fff; color: #effffa;">
     <div class="project-main">
       <div class="project-titleImg"></div>
       <div class="project-text">
@@ -36,7 +36,14 @@
           </div>
         </div>
       </div>
-    </div>
+      <div class="project-page">
+        <div class="wrapper">
+          <div class="youtube-container"></div>
+        </div>
+        <div class="project-wrap">
+          </div>
+        </div>
+      </div>
 
     <script>
       const projects = {
@@ -46,12 +53,29 @@
           location: "Calgary, AB",
           description: `Students are often overwhelmed by the challenge of organizing their study and work sessions effectively, especially in a digital setting. In the wake of the pandemic lockdown, it was clear that online approaches to group study or collaborative work that supports a tightly knit online learning environment were desired but none existed to fill that niche. Technologies such as Zoom or Discord are able to serve such a purpose, but require workarounds for sharing broad varieties of simple media and information.
                         \nOur proposed web-based application, Study Buddy, aims to bridge the gap by providing environments that promote synchronous study between participating users and give them the tools to facilitate it. In essence, it is an online space a user can enter with others and isolate distractions found in both the user’s physical and digital environment. In order to preserve this insulation, various “widgets” are available in these spaces to share simple information between other members of your space. These widgets include ambient noise tracks, timers, notepads, and music and video players.`,
-          imageTitle: "asset/studdyBuddyPic.png",
+          imageTitle: "asset/studdyBuddy/studyBuddy.png",
           role: ["Front-end Developer", "Product Owner"],
           duration: "3 weeks",
-          technologies: ["HTML", "JavaScript", "CSS", "Vue.js", "Docker", "Node.js"],
+          technologies: [
+            "HTML",
+            "JavaScript",
+            "CSS",
+            "Vue.js",
+            "Docker",
+            "Node.js",
+          ],
           links: "https://github.com/HAPPYSACKS/SENG513Project",
-          image: ["asset/studdyBuddyPic.png"],
+          youtube: `<iframe
+              src="https://www.youtube.com/embed/aVN3wxgbO08?autoplay=0&controls=0&loop=1&rel=0"
+              allow="autoplay;"
+            ></iframe>`,
+          image: [
+            "asset/studdyBuddy/1.gif",
+            "asset/studdyBuddy/2.png",
+            "asset/studdyBuddy/3.gif",
+            "asset/studdyBuddy/4.gif",
+            "asset/studdyBuddy/5.gif",
+          ],
         },
       };
 
@@ -72,6 +96,22 @@
           });
         }
 
+        function loadImages(images) {
+            var container = document.querySelector('.project-wrap');
+            
+            images.forEach(function(imageUrl) {
+                var itemDiv = document.createElement('div');
+                itemDiv.className = 'item medium unavailable';
+                
+                var itemImageDiv = document.createElement('div');
+                itemImageDiv.className = 'item-image';
+                itemImageDiv.style.backgroundImage = "url('" + imageUrl + "')";
+                
+                itemDiv.appendChild(itemImageDiv);
+                container.appendChild(itemDiv);
+            });
+        }
+
         function loadProject(projectID) {
           const project = projects[projectID];
           if (project) {
@@ -79,13 +119,27 @@
             document.querySelector(".project-titleImg").style.backgroundImage =
               "url(" + `${project.imageTitle}` + ")";
             document.getElementById("project-subtitle").innerHTML =
-              "<p><strong>" + project.class + "</strong></p>" + "<p><nobr>" +project.location + "</nobr></p>";
+              "<p><strong>" +
+              project.class +
+              "</strong></p>" +
+              "<p><nobr>" +
+              project.location +
+              "</nobr></p>";
             document.getElementById("project-description").innerText =
               project.description;
 
             loadElements(project.role, "role");
             document.getElementById("duration").innerText = project.duration;
             loadElements(project.technologies, "tech");
+            document.getElementById(
+              "links"
+            ).innerHTML = `<a href="${project.links}">github</a>`;
+            if (project.youtube) {
+              document.querySelector(".wrapper").style.display = "block";
+              document.querySelector(".youtube-container").innerHTML =
+                project.youtube;
+            }
+            loadImages(project.image);
             // document.getElementById("project-image").src = project.imageTitle;
           }
         }
