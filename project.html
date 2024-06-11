@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
   </head>
-  <body class="poppins-light" style="background-color: #8a4fff; color: #effffa;">
+  <body class="poppins-light" style="background-color: #8a4fff; color: #effffa">
     <div class="project-main">
       <div class="project-titleImg"></div>
       <div class="project-text">
@@ -40,12 +40,17 @@
         <div class="wrapper">
           <div class="youtube-container"></div>
         </div>
-        <div class="project-wrap">
-          </div>
-        </div>
+        <div class="project-wrap"></div>
       </div>
+    </div>
+    <div onclick="handleClick()" class="up-next bg-image">
+      <div class="overlay"></div>
+      <a>Up next: </a>
+      <span id="next"></span>
+    </div>
 
     <script>
+      const PROJECTS_AMOUNT = 3;
       const projects = {
         0: {
           title: "StudyBuddy",
@@ -76,74 +81,124 @@
             "asset/studdyBuddy/4.gif",
             "asset/studdyBuddy/5.gif",
           ],
+          next: ["Two Kings", "asset/twoKings/twokings.gif"],
+        },
+        1: {
+          title: "Two Kings",
+          class: "SENG513",
+          location: "Calgary, AB",
+          description: `Students are often overwhelmed by the challenge of organizing their study and work sessions effectively, especially in a digital setting. In the wake of the pandemic lockdown, it was clear that online approaches to group study or collaborative work that supports a tightly knit online learning environment were desired but none existed to fill that niche. Technologies such as Zoom or Discord are able to serve such a purpose, but require workarounds for sharing broad varieties of simple media and information.
+                        \nOur proposed web-based application, Study Buddy, aims to bridge the gap by providing environments that promote synchronous study between participating users and give them the tools to facilitate it. In essence, it is an online space a user can enter with others and isolate distractions found in both the user’s physical and digital environment. In order to preserve this insulation, various “widgets” are available in these spaces to share simple information between other members of your space. These widgets include ambient noise tracks, timers, notepads, and music and video players.`,
+          imageTitle: "asset/twoKings/twoKings.png",
+          role: ["Front-end Developer"],
+          duration: "1.5 weeks",
+          technologies: ["HTML", "JavaScript", "CSS"],
+          links: "https://github.com/Carl0s4321/TwoKings",
+          image: [
+            "asset/studdyBuddy/1.gif",
+            "asset/studdyBuddy/2.png",
+            "asset/studdyBuddy/3.gif",
+            "asset/studdyBuddy/4.gif",
+            "asset/studdyBuddy/5.gif",
+          ],
+          next: ["Snake Snack","asset/snakeSnack/snakesnack.gif"],
+        },
+        2: {
+          title: "Snake Snack",
+          class: "GAME DEVELOPMENT CLUB",
+          location: "Calgary, AB",
+          description: `developed for club showcase and fit into a makeshift arcade machine, i.e. for fun lol`,
+          imageTitle: "asset/snakeSnack/snakeSnack.png",
+          role: ["Developer"],
+          duration: "1.5 weeks",
+          technologies: ["Godot", "GDScript", "JavaScript"],
+          links: "https://coloredasterisk.itch.io/snake-snack",
+          image: [
+            "asset/studdyBuddy/1.gif",
+            "asset/studdyBuddy/2.png",
+            "asset/studdyBuddy/3.gif",
+            "asset/studdyBuddy/4.gif",
+            "asset/studdyBuddy/5.gif",
+          ],
+          next: ["StudyBuddy", "asset/studdyBuddy/studybuddy.gif"],
         },
       };
+      function handleClick() {
+        const projectID =
+          (parseInt(getProjectID("project")) + 1) % PROJECTS_AMOUNT;
+        window.location.href = `project.html?project=${projectID}`;
+      }
+
+      function getProjectID(projectID) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(projectID);
+      }
+
+      function loadElements(elements, id) {
+        const container = document.getElementById(id);
+        container.innerHTML = "";
+
+        elements.forEach((element) => {
+          const elementP = document.createElement("p");
+          elementP.innerText = element;
+          container.appendChild(elementP);
+        });
+      }
+
+      function loadImages(images) {
+        var container = document.querySelector(".project-wrap");
+
+        images.forEach((imageUrl) => {
+          var itemDiv = document.createElement("div");
+          itemDiv.className = "item medium unavailable";
+
+          var itemImageDiv = document.createElement("div");
+          itemImageDiv.className = "item-image";
+          itemImageDiv.style.backgroundImage = "url('" + imageUrl + "')";
+
+          itemDiv.appendChild(itemImageDiv);
+          container.appendChild(itemDiv);
+        });
+      }
+
+      function loadProject(projectID) {
+        const project = projects[projectID];
+        if (project) {
+          document.title = `Carlos Sujanto | ${project.title}`;
+          document.querySelector(".project-titleImg").style.backgroundImage =
+            "url(" + `${project.imageTitle}` + ")";
+          document.getElementById("project-subtitle").innerHTML =
+            "<p><strong>" +
+            project.class +
+            "</strong></p>" +
+            "<p><nobr>" +
+            project.location +
+            "</nobr></p>";
+          document.getElementById("project-description").innerText =
+            project.description;
+
+          loadElements(project.role, "role");
+          document.getElementById("duration").innerText = project.duration;
+          loadElements(project.technologies, "tech");
+          document.getElementById(
+            "links"
+          ).innerHTML = `<a href="${project.links}">github</a>`;
+          if (project.youtube) {
+            document.querySelector(".wrapper").style.display = "block";
+            document.querySelector(".youtube-container").innerHTML =
+              project.youtube;
+          }
+          loadImages(project.image);
+
+          document.getElementById(
+            "next"
+          ).innerHTML = `<strong> ${project.next[0]} </strong>`;
+
+          document.querySelector(".bg-image").style.backgroundImage = `url(${project.next[1]})`;
+        }
+      }
 
       document.addEventListener("DOMContentLoaded", function () {
-        function getProjectID(projectID) {
-          const urlParams = new URLSearchParams(window.location.search);
-          return urlParams.get(projectID);
-        }
-
-        function loadElements(elements, id) {
-          const container = document.getElementById(id);
-          container.innerHTML = "";
-
-          elements.forEach((element) => {
-            const elementP = document.createElement("p");
-            elementP.innerText = element;
-            container.appendChild(elementP);
-          });
-        }
-
-        function loadImages(images) {
-            var container = document.querySelector('.project-wrap');
-            
-            images.forEach(function(imageUrl) {
-                var itemDiv = document.createElement('div');
-                itemDiv.className = 'item medium unavailable';
-                
-                var itemImageDiv = document.createElement('div');
-                itemImageDiv.className = 'item-image';
-                itemImageDiv.style.backgroundImage = "url('" + imageUrl + "')";
-                
-                itemDiv.appendChild(itemImageDiv);
-                container.appendChild(itemDiv);
-            });
-        }
-
-        function loadProject(projectID) {
-          const project = projects[projectID];
-          if (project) {
-            document.title = `Carlos Sujanto | ${project.title}`;
-            document.querySelector(".project-titleImg").style.backgroundImage =
-              "url(" + `${project.imageTitle}` + ")";
-            document.getElementById("project-subtitle").innerHTML =
-              "<p><strong>" +
-              project.class +
-              "</strong></p>" +
-              "<p><nobr>" +
-              project.location +
-              "</nobr></p>";
-            document.getElementById("project-description").innerText =
-              project.description;
-
-            loadElements(project.role, "role");
-            document.getElementById("duration").innerText = project.duration;
-            loadElements(project.technologies, "tech");
-            document.getElementById(
-              "links"
-            ).innerHTML = `<a href="${project.links}">github</a>`;
-            if (project.youtube) {
-              document.querySelector(".wrapper").style.display = "block";
-              document.querySelector(".youtube-container").innerHTML =
-                project.youtube;
-            }
-            loadImages(project.image);
-            // document.getElementById("project-image").src = project.imageTitle;
-          }
-        }
-
         const projectID = getProjectID("project");
         if (projectID) {
           loadProject(projectID);
